@@ -1,0 +1,59 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import { StaticQuery, Link, graphql } from "gatsby"
+import { withStyles } from '@material-ui/core/styles';
+
+const styles = theme => ({
+
+});
+
+const RecipeListWrapper = () => (
+  <StaticQuery
+    query={graphql`
+      query {
+        allNodeRecipe(limit: 3) {
+          edges {
+            node {
+              uuid,
+              title,
+              path {
+                alias,
+              }
+            }
+          }
+        }
+      }
+    `}
+    render={data => <RecipeList recipes={data.allNodeRecipe.edges} />}
+  />
+);
+
+const RecipeList = ({recipes}) => (
+  <ul>
+    {
+      recipes.map(({ node: recipe }) => (
+        <li key={recipe.uuid}>
+          <Link to={recipe.path.alias}>
+            {recipe.title}
+          </Link>
+        </li>
+      ))
+    }
+  </ul>
+);
+
+RecipeList.propTypes = {
+  recipes: PropTypes.arrayOf(
+    PropTypes.shape({
+      node: PropTypes.shape({
+        uuid: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+        path: PropTypes.shape({
+          alias: PropTypes.string.isRequired,
+        }).isRequired,
+      }).isRequired,
+    }),
+  ).isRequired,
+};
+
+export default withStyles(styles)(RecipeListWrapper);

@@ -7,6 +7,8 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 
+import RecipeList from '../RecipeList/RecipeList';
+
 const styles = theme => ({
 	// custom CSS here ...
 });
@@ -48,6 +50,7 @@ const Recipe = (props) => (
     <Typography variant="body2" paragraph dangerouslySetInnerHTML={{ __html: props.instructions }} />
 
     <Typography variant="subheading">Try another recipe:</Typography>
+    <RecipeList />
   </>
 );
 
