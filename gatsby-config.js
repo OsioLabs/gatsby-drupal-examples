@@ -26,5 +26,12 @@ module.exports = {
       },
     },
     'gatsby-plugin-offline',
+    {
+      resolve: `gatsby-source-drupal`,
+      options: {
+        baseUrl: `http://gatsby-drupal.ddev.local/`,
+        apiBase: `jsonapi`, // optional, defaults to `jsonapi`
+      },
+    },
   ],
 }
