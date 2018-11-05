@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import Helmet from 'react-helmet';
 import Layout from '../components/layout';
 import Recipe from '../components/Recipe/Recipe';
 import Paper from '@material-ui/core/Paper';
@@ -19,6 +20,12 @@ const recipeTemplate = (props) => {
 
   return (
     <Layout>
+      <Helmet
+        title={`Umami - ${recipe.title}`}
+        meta={[
+          {name: 'description', content: recipe.title},
+        ]}
+      />
       <Paper className={classes.root}>
         <Recipe
           {...recipe}

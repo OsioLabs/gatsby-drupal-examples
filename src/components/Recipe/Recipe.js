@@ -56,9 +56,9 @@ Recipe.propTypes = {
   difficulty: PropTypes.string.isRequired,
   cooking_time: PropTypes.number.isRequired,
   preparation_time: PropTypes.number.isRequired,
-  //ingredients: PropTypes.arrayOf(PropTypes.string),
+  ingredients: PropTypes.arrayOf(PropTypes.string),
   summary: PropTypes.string.isRequired,
-  //instructions: PropTypes.string.isRequired,
+  instructions: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
   tags: PropTypes.array,
 };
