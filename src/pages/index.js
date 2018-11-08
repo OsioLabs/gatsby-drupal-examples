@@ -42,6 +42,7 @@ const IndexPage = (props) => {
                 summary={recipe.summary.processed}
                 category={recipe.relationships.category[0].name}
                 path={recipe.path.alias}
+                image={recipe.relationships.image}
               />
             </Grid>
           ))
@@ -80,6 +81,15 @@ export const query = graphql`
             }
             tags: field_tags {
               name,
+            }
+            image: field_image {
+              localFile {
+                childImageSharp {
+                  fluid(maxWidth: 1100) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
             }
           }
         }

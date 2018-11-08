@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby'
+import Img from 'gatsby-image';
 
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
@@ -34,6 +35,11 @@ const RecipeCard = (props) => {
 
   return (
     <Card className={classes.card}>
+      {props.image.localFile && 
+        <Link to={props.path}>
+          <Img fluid={props.image.localFile.childImageSharp.fluid} />
+        </Link>
+      }
       <CardContent>
         <Typography className={classes.title} color="textSecondary">
           {props.category}
@@ -56,6 +62,7 @@ RecipeCard.propTypes = {
   summary: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
   path: PropTypes.string.isRequired,
+  image: PropTypes.object,
 };
 
 export default withStyles(styles)(RecipeCard);

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Img from 'gatsby-image';
 import GridList from '@material-ui/core/GridList';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -13,8 +14,11 @@ const styles = theme => ({
 	// custom CSS here ...
 });
 
-const Recipe = (props) => (
+const Recipe = (props) => console.log(props) || (
   <>
+    {props.image.localFile &&
+      <Img fluid={props.image.localFile.childImageSharp.fluid} />
+    }
     <Typography variant="headline" paragraph>{props.title}</Typography>
     <GridList cols="5" cellHeight="auto">
       <ListItem>
