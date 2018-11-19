@@ -5,8 +5,17 @@ import { StaticQuery, graphql } from 'gatsby'
 
 import Navigation from './Navigation/Navigation';
 
+import drupalOauth from '../components/drupal-oauth/drupalOauth';
+import withDrupalOauthProvider from '../components/drupal-oauth/withDrupalOauthProvider';
+
 import { withStyles } from '@material-ui/core/styles';
 import withRoot from '../withRoot';
+
+const drupalOauthClient = new drupalOauth({
+  drupal_root: 'http://gatsby-drupal.ddev.local',
+  client_id: '448d13ae-c82c-4401-863d-a2d95554ecaa',
+  client_secret: 'gatsby',
+});
 
 const styles = theme => ({
   root: {
@@ -63,4 +72,5 @@ Layout.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-export default withRoot(withStyles(styles)(Layout));
+const LayoutWithStyles = withRoot(withStyles(styles)(Layout));
+export default withDrupalOauthProvider(drupalOauthClient, LayoutWithStyles);

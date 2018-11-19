@@ -7,6 +7,10 @@ import Button from '@material-ui/core/Button';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 
+import withDrupalOauthConsumer from '../drupal-oauth/withDrupalOauthConsumer';
+import SignIn from '../SignIn/SignIn';
+import LogoutLink from '../LogoutLink/LogoutLink';
+
 const styles = {
   root: {
     flexGrow: 1,
@@ -32,6 +36,13 @@ function Navigation(props) {
           <Typography variant="headline" className={classes.grow}>{props.siteTitle}</Typography>
           <div className={classes.menu}>
               <Button variant="default" component={Link} to="/" className={classes.menuButton}>Home</Button>
+              {props.userAuthenticated ?
+                <>
+                  <LogoutLink/>
+                </>
+                :
+                <SignIn />
+              }
           </div>
         </Toolbar>
       </AppBar>
@@ -43,4 +54,4 @@ Navigation.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Navigation);
+export default withStyles(styles)(withDrupalOauthConsumer(Navigation));

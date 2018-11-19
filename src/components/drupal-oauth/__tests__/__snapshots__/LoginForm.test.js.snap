@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginForm renders correctly and can be submitted 1`] = `
+<DocumentFragment>
+  <div>
+    Enter your username and password below to log in.
+  </div>
+  <form>
+    <label>
+      Username:
+      <input
+        name="username"
+        type="text"
+      />
+    </label>
+    <label>
+      Password:
+      <input
+        name="password"
+        type="password"
+      />
+    </label>
+    <input
+      type="submit"
+      value="Log in"
+    />
+  </form>
+</DocumentFragment>
+`;

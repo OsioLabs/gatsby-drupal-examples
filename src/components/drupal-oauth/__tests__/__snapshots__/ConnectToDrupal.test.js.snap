@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: <SendToDrupal /> Renders a link to authorize a user against Drupal 1`] = `
+<a
+  href="http://api.example.com/oauth/authorize?client_id=CLIENTID&redirect_uri=http%3A%2F%2Fwww.example.com&response_type=code&state=%7B%7D"
+>
+  Connect to Drupal
+</a>
+`;
+
+exports[`Component: <SendToDrupal /> Renders a link to register and then authorize a user against Drupal 1`] = `
+<a
+  href="http://api.example.com/user/register?destination=/oauth/authorize%3Fclient_id%3DCLIENTID%26redirect_uri%3Dhttp%253A%252F%252Fwww.example.com%26response_type%3Dcode%26state%3D%257B%257D"
+>
+  Register with Drupal
+</a>
+`;
