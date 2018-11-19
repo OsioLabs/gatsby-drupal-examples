@@ -3,8 +3,11 @@ import { graphql } from 'gatsby';
 import Helmet from 'react-helmet';
 import Layout from '../components/layout';
 import Recipe from '../components/Recipe/Recipe';
+import RecipeTeaser from '../components/RecipeTeaser/RecipeTeaser';
 import Paper from '@material-ui/core/Paper';
 import { withStyles } from '@material-ui/core/styles';
+
+import DrupalOauthContext from '../components/drupal-oauth/DrupalOauthContext';
 
 const styles = theme => ({
   root: {
@@ -18,6 +21,18 @@ const recipeTemplate = (props) => {
   const { classes } = props;
   const { nodeRecipe: recipe } = props.data;
 
+  const recipeClean = {
+    uuid: recipe.uuid,
+    title: recipe.title,
+    difficulty: recipe.difficulty,
+    cooking_time: recipe.cooking_time,
+    preparation_time: recipe.preparation_time,
+    category: recipe.relationships.category[0].name,
+    tags: recipe.relationships.tags,
+    summary: recipe.summary.processed,
+    image: recipe.relationships.image,
+  };
+
   return (
     <Layout>
       <Helmet
@@ -27,14 +42,11 @@ const recipeTemplate = (props) => {
         ]}
       />
       <Paper className={classes.root}>
-        <Recipe
-          {...recipe}
-          category={recipe.relationships.category[0].name}
-          tags={recipe.relationships.tags}
-          instructions={recipe.instructions.processed}
-          summary={recipe.summary.processed}
-          image={recipe.relationships.image}
-        />
+        <DrupalOauthContext.Consumer>
+          {({userAuthenticated}) => (
+            userAuthenticated ? <Recipe {...recipeClean} /> : <RecipeTeaser {...recipeClean} />
+          )}
+        </DrupalOauthContext.Consumer>
       </Paper>
     </Layout>
   )
@@ -54,12 +66,8 @@ export const query = graphql`
       title,
       cooking_time: field_cooking_time,
       difficulty: field_difficulty,
-      ingredients: field_ingredients,
       preparation_time: field_preparation_time,
       number_of_servings: field_number_of_servings,
-      instructions: field_recipe_instruction {
-        processed,
-      },
       summary: field_summary {
         processed,
       },
