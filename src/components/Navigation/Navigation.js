@@ -38,6 +38,7 @@ function Navigation(props) {
               <Button variant="default" component={Link} to="/" className={classes.menuButton}>Home</Button>
               {props.userAuthenticated ?
                 <>
+                  <Button variant="outlined" component={Link} to="/user/profile">My Account</Button>
                   <LogoutLink/>
                 </>
                 :
