@@ -24,6 +24,10 @@ class drupalOauth {
    *   The current users authorization token, or false.
    */
   isLoggedIn() {
+    if (typeof window === 'undefined') {
+      return false;
+    }
+
     let token = localStorage.getItem('drupal-oauth-token') !== null ? JSON.parse(localStorage.getItem('drupal-oauth-token')) : null;
 
     if (token === null) {
