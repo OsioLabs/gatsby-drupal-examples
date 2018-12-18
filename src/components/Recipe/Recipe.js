@@ -14,7 +14,7 @@ const styles = theme => ({
 const Recipe = (props) => (
   <>
     <Typography variant="headline" paragraph>{props.title}</Typography>
-    <GridList cols="5" cellHeight="auto">
+    <GridList cols={5} cellHeight="auto">
       <ListItem>
       <ListItemText primary="Difficulty" secondary={props.difficulty} />
     </ListItem>
@@ -40,7 +40,7 @@ const Recipe = (props) => (
     <Typography variant="subheading">Ingredients:</Typography>
     <List dense={true}>
       {
-        props.ingredients.map(item => <ListItem key={item.index}>{item}</ListItem>)
+        props.ingredients.map((item, index) => <ListItem key={index}>{item}</ListItem>)
       }
     </List>
 
