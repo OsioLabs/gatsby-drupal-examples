@@ -69,7 +69,7 @@ class Recipe extends React.Component {
       <>
         <Img fluid={this.props.image.localFile.childImageSharp.fluid} />
         <Typography variant="headline" paragraph>{this.props.title}</Typography>
-        <GridList cols="5" cellHeight="auto">
+        <GridList cols={5} cellHeight="auto">
           <ListItem>
           <ListItemText primary="Difficulty" secondary={this.props.difficulty} />
         </ListItem>
@@ -97,7 +97,7 @@ class Recipe extends React.Component {
             <Typography variant="subheading">Ingredients:</Typography>
             <List dense={true}>
               {
-                this.state.ingredients.map(item => <ListItem key={item}>{item}</ListItem>)
+                this.state.ingredients.map((item, index) => <ListItem key={index}>{item}</ListItem>)
               }
             </List>
 
