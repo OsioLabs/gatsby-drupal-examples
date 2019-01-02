@@ -17,7 +17,7 @@ exports.createPages = ({ graphql, actions }) => {
         allNodeRecipe {
           edges {
             node {
-              uuid,
+              drupal_id,
               title,
               path {
                 alias,
@@ -30,7 +30,7 @@ exports.createPages = ({ graphql, actions }) => {
       result.data.allNodeRecipe.edges.forEach(({ node }) => {
         let path_alias;
         if (node.path.alias == null) {
-          path_alias = `recipe/${node.uuid}`;
+          path_alias = `recipe/${node.drupal_id}`;
         } else {
           path_alias = node.path.alias;
         }
@@ -44,7 +44,7 @@ exports.createPages = ({ graphql, actions }) => {
           context: {
             // Data passed to context is available in page queries as GraphQL
             // variables.
-            uuid: node.uuid,
+            drupal_id: node.drupal_id,
           },
         })
       });
