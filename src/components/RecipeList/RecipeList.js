@@ -14,7 +14,7 @@ const RecipeListWrapper = () => (
         allNodeRecipe(limit: 3) {
           edges {
             node {
-              uuid,
+              drupal_id,
               title,
               path {
                 alias,
@@ -32,7 +32,7 @@ const RecipeList = ({recipes}) => (
   <ul>
     {
       recipes.map(({ node: recipe }) => (
-        <li key={recipe.uuid}>
+        <li key={recipe.drupal_id}>
           <Link to={recipe.path.alias}>
             {recipe.title}
           </Link>
@@ -46,7 +46,7 @@ RecipeList.propTypes = {
   recipes: PropTypes.arrayOf(
     PropTypes.shape({
       node: PropTypes.shape({
-        uuid: PropTypes.string.isRequired,
+        drupal_id: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
         path: PropTypes.shape({
           alias: PropTypes.string.isRequired,
