@@ -54,15 +54,15 @@ const recipeTemplate = (props) => {
 
 export default withStyles(styles)(recipeTemplate);
 
-// The $uuid variable here is obtained from the "context" object passed into
+// The $drupal_id variable here is obtained from the "context" object passed into
 // the createPage() API in gatsby-node.js.
 //
 // Also note the use of field name aliasing in the query. This is done to
 // help normalize the shape of the recipe data.
 export const query = graphql`
-  query RecipeTemplate($uuid: String!) {
-    nodeRecipe(uuid: {eq: $uuid}) {
-      uuid,
+  query RecipeTemplate($drupal_id: String!) {
+    nodeRecipe(drupal_id: {eq: $drupal_id}) {
+      drupal_id,
       title,
       cooking_time: field_cooking_time,
       difficulty: field_difficulty,

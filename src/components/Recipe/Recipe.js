@@ -41,7 +41,7 @@ class Recipe extends React.Component {
       headers,
     };
 
-    const url = `http://gatsby-drupal.ddev.local/jsonapi/node/recipe/${this.props.uuid}`
+    const url = `http://gatsby-drupal.ddev.local/jsonapi/node/recipe/${this.props.drupal_id}`
     
     let data;
     try {
