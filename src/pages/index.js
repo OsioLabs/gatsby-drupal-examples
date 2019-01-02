@@ -66,7 +66,7 @@ export const query = graphql`
     allNodeRecipe(sort: {fields: [changed], order:DESC}) {
       edges {
         node {
-          uuid,
+          drupal_id,
           title,
           path {
             alias,
