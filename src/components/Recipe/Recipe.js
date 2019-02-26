@@ -68,8 +68,8 @@ class Recipe extends React.Component {
     return (
       <>
         <Img fluid={this.props.image.localFile.childImageSharp.fluid} />
-        <Typography variant="headline" paragraph>{this.props.title}</Typography>
-        <GridList cols="5" cellHeight="auto">
+        <Typography variant="h2" paragraph>{this.props.title}</Typography>
+        <GridList cols={5} cellHeight="auto">
           <ListItem>
           <ListItemText primary="Difficulty" secondary={this.props.difficulty} />
         </ListItem>
@@ -89,26 +89,26 @@ class Recipe extends React.Component {
         }
         </GridList>
 
-        <Typography variant="subheading">Summary:</Typography>
+        <Typography variant="subtitle1">Summary:</Typography>
         <Typography variant="body2" paragraph dangerouslySetInnerHTML={{ __html: this.props.summary }} />
 
         {this.state.instructions !== '' ?
           <>
-            <Typography variant="subheading">Ingredients:</Typography>
+            <Typography variant="subtitle1">Ingredients:</Typography>
             <List dense={true}>
               {
                 this.state.ingredients.map(item => <ListItem key={item}>{item}</ListItem>)
               }
             </List>
 
-            <Typography variant="subheading">Preparation:</Typography>
+            <Typography variant="subtitle1">Preparation:</Typography>
             <Typography variant="body2" paragraph dangerouslySetInnerHTML={{ __html: this.state.instructions }} />
           </>
           :
           <LinearProgress className={classes.progressBar} />
         }
 
-        <Typography variant="subheading">Try another recipe:</Typography>
+        <Typography variant="subtitle1">Try another recipe:</Typography>
         <RecipeList/>
       </>
     )
