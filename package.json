@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-starter-default",
-  "description": "Gatsby default starter",
+  "name": "gatsby-drupal-examples",
+  "description": "Examples of using Gatsby & Drupal together.",
   "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Joe Shindelar <joe@osiolabs.com>",
   "dependencies": {
     "@material-ui/core": "^3.4.0",
     "gatsby": "^2.0.19",
@@ -35,6 +35,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/OsioLa bs/gatsby-drupal-examples"
   }
 }

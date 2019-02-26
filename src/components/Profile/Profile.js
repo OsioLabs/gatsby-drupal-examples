@@ -47,7 +47,7 @@ class Profile extends React.Component {
 
     const profile = userData.data.shift().attributes;
 
-    if (profile.uid == userInfo.id) {
+    if (profile.uid === userInfo.id) {
       this.setState({profile: profile});
     }
   }
@@ -60,7 +60,7 @@ class Profile extends React.Component {
     }
     return(
       <>
-      <Typography variant="headline" paragraph>Hi {this.state.profile.name}, this is your profile</Typography>
+      <Typography variant="h2" paragraph>Hi {this.state.profile.name}, this is your profile</Typography>
       <ul>
         {
           Object.keys(this.state.profile).map(key => <li key={key}>{key}: {this.state.profile[key]}</li>)

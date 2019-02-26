@@ -29,8 +29,8 @@ const styles = theme => ({
 const RecipeTeaser = (props) => (
   <>
     <Img fluid={props.image.localFile.childImageSharp.fluid} />
-    <Typography variant="headline" paragraph>{props.title}</Typography>
-    <GridList cols="5" cellHeight="auto">
+    <Typography variant="h2">{props.title}</Typography>
+    <GridList cols={5} cellHeight="auto">
       <ListItem>
       <ListItemText primary="Difficulty" secondary={props.difficulty} />
     </ListItem>
@@ -50,19 +50,19 @@ const RecipeTeaser = (props) => (
     }
     </GridList>
 
-    <Typography variant="subheading">Summary:</Typography>
+    <Typography variant="subtitle1">Summary:</Typography>
     <Typography variant="body2" paragraph dangerouslySetInnerHTML={{ __html: props.summary }} />
 
     <Card raised={true}>
       <CardContent>
-        <Typography variant="body" component="strong">
+        <Typography variant="body1" component="strong">
           <SignIn /> to view the complete content of this recipe.
         </Typography>  
       </CardContent>
     </Card>
 
     <div className={props.classes.recipeList}>
-      <Typography variant="subheading">Try another recipe:</Typography>
+      <Typography variant="subtitle1">Try another recipe:</Typography>
       <RecipeList />
     </div>
   </>

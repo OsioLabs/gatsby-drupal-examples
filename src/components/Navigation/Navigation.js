@@ -33,9 +33,9 @@ function Navigation(props) {
     <div className={classes.root}>
       <AppBar position="relative" color="default">
         <Toolbar>
-          <Typography variant="headline" className={classes.grow}>{props.siteTitle}</Typography>
+          <Typography variant="h2" className={classes.grow}>{props.siteTitle}</Typography>
           <div className={classes.menu}>
-              <Button variant="default" component={Link} to="/" className={classes.menuButton}>Home</Button>
+              <Button component={Link} to="/" className={classes.menuButton}>Home</Button>
               {props.userAuthenticated ?
                 <>
                   <Button variant="outlined" component={Link} to="/user/profile">My Account</Button>
