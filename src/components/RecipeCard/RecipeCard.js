@@ -31,7 +31,7 @@ const styles = {
 
 const RecipeCard = (props) => {
   const { classes } = props;
-  const RecipeLink = props => console.log(props) || <Link to={props.path} {...props}>Read more</Link>;
+  const RecipeLink = props => <Link to={props.path} {...props}>Read more</Link>;
 
   return (
     <Card className={classes.card}>
@@ -44,13 +44,13 @@ const RecipeCard = (props) => {
         <Typography className={classes.title} color="textSecondary">
           {props.category}
         </Typography>
-        <Typography variant="headline" component="h2">
+        <Typography variant="h5" component="h2">
           {props.title}
         </Typography>
         <Typography className={classes.pos} color="textSecondary" dangerouslySetInnerHTML={{ __html: props.summary }} />
       </CardContent>
       <CardActions>
-        <Button size="small" path={props.path} component={RecipeLink} />
+        <Button size="small" path={props.path} component={RecipeLink}>Read more</Button>
       </CardActions>
     </Card>
   );
