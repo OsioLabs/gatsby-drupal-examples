@@ -5,7 +5,7 @@ import Typography from '@material-ui/core/Typography';
 const Header = ({ siteTitle }) => (
   <Toolbar>
     <Typography
-      variant="headline"
+      variant="h1"
     >
       {siteTitle}
     </Typography>
