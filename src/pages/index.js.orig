@@ -1,18 +1,33 @@
 import React from 'react'
 import PropTypes from 'prop-types';
+<<<<<<< HEAD
 import { graphql } from 'gatsby'
-import { makeStyles } from '@material-ui/core/styles';
-import Box from '@material-ui/core/Box';
-import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
 
 import Layout from '../components/layout'
 import RecipeCard from '../components/RecipeCard/RecipeCard';
 
+import { withStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
+=======
+import { Link } from 'gatsby'
+import { makeStyles } from '@material-ui/core/styles';
+>>>>>>> 47b3fee... Update to use @material-ui/* version ^4.
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
+import Layout from '../components/layout'
+
+<<<<<<< HEAD
+const styles = theme => ({
+  top: {
+    ...theme.mixins.gutters(),
+    paddingTop: theme.spacing.unit * 2,
+    paddingBottom: theme.spacing.unit * 2,
+    marginBottom: theme.spacing.unit * 2,
+=======
 const useStyles = makeStyles(theme => ({
   root: {
     padding: theme.spacing(3, 2),
+>>>>>>> 47b3fee... Update to use @material-ui/* version ^4.
   },
 }));
 
@@ -30,11 +45,10 @@ const IndexPage = (props) => {
           Now go build something great.
         </Typography>
       </Paper>
-      <Box mt={3}>
-        <Grid container spacing={1}>
+        <Grid container spacing={40} className={classes.cardGrid}>
         {
           props.data.allNodeRecipe.edges.map(({ node: recipe }) => (
-            <Grid item key={recipe.title} xs={6} md={4}>
+            <Grid item key={recipe.title} xs={12} md={4}>
               <RecipeCard
                 title={recipe.title}
                 summary={recipe.summary.processed}
@@ -45,7 +59,8 @@ const IndexPage = (props) => {
           ))
         }
         </Grid>
-      </Box>
+
+
     </Layout>
   );
 };
@@ -54,7 +69,8 @@ IndexPage.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default IndexPage;
+<<<<<<< HEAD
+export default withStyles(styles)(IndexPage);
 
 // The result of this GraphQL query will be injected as props.data into the
 // IndexPage component.
@@ -84,3 +100,6 @@ export const query = graphql`
     }
   }
 `;
+=======
+export default IndexPage;
+>>>>>>> 47b3fee... Update to use @material-ui/* version ^4.
