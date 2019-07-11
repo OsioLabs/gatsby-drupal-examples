@@ -30,7 +30,7 @@ class Profile extends React.Component {
 
     // Use this endpoint to figure out the ID of the current user.
     try {
-      let response = await fetch(`http://gatsby-drupal.ddev.local/oauth/debug`, options);
+      let response = await fetch(`http://dev-gatsby-drupal-demo.pantheonsite.io/oauth/debug`, options);
       userInfo = await response.json();
     } catch(err) {
       console.log(`There was an error accessing oauth/debug: ${err}`)
@@ -41,7 +41,7 @@ class Profile extends React.Component {
         // This uses the JSON API ?filter= query string parameter to request
         // just the record for the user with a UID equal to what we retrieved
         // in the response above.
-        let response = await fetch(`http://gatsby-drupal.ddev.local/jsonapi/user/user?filter[uid][value]=${userInfo.id}`, options);
+        let response = await fetch(`http://dev-gatsby-drupal-demo.pantheonsite.io/jsonapi/user/user?filter[uid][value]=${userInfo.id}`, options);
         userData = await response.json();
       } catch(err) {
         console.log(`There was an error retrieving the user's profile data: ${err}`)
