@@ -2,18 +2,17 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
+import Box from '@material-ui/core/Box';
+import Container from '@material-ui/core/Container';
 
 import Navigation from './Navigation/Navigation';
 
 import drupalOauth from '../components/drupal-oauth/drupalOauth';
 import withDrupalOauthProvider from '../components/drupal-oauth/withDrupalOauthProvider';
 
-import { withStyles } from '@material-ui/core/styles';
-import withRoot from '../withRoot';
-
 const drupalOauthClient = new drupalOauth({
-  drupal_root: 'http://gatsby-drupal.ddev.local',
-  client_id: '448d13ae-c82c-4401-863d-a2d95554ecaa',
+  drupal_root: 'http://dev-gatsby-drupal-demo.pantheonsite.io/',
+  client_id: 'ffa31eab-16ac-40b2-99a7-46acace22766',
   client_secret: 'gatsby',
 });
 
@@ -32,7 +31,6 @@ const styles = theme => ({
 
 const Layout = (props) => {
   const {children} = props;
-  const {classes} = props;
 
   return (
     <StaticQuery
@@ -56,12 +54,12 @@ const Layout = (props) => {
           >
             <html lang="en"/>
           </Helmet>
-          <div className={classes.root}>
+          <Container maxWidth="lg">
             <Navigation siteTitle={data.site.siteMetadata.title}/>
-            <main>
+            <Box component="main">
               {children}
-            </main>
-          </div>
+            </Box>
+          </Container>
         </>
       )}
     />
@@ -72,5 +70,4 @@ Layout.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-const LayoutWithStyles = withRoot(withStyles(styles)(Layout));
-export default withDrupalOauthProvider(drupalOauthClient, LayoutWithStyles);
+export default withDrupalOauthProvider(drupalOauthClient, Layout);

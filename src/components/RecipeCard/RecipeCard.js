@@ -2,18 +2,17 @@ import React from 'react'
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby'
 import Img from 'gatsby-image';
-
-import { withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 
-const styles = {
+const useStyles = makeStyles(theme => ({
   card: {
     maxWidth: 345,
-		minHeight: 310,
+    minHeight: 310,
   },
   bullet: {
     display: 'inline-block',
@@ -27,10 +26,10 @@ const styles = {
   pos: {
     marginBottom: 12,
   },
-};
+}));
 
 const RecipeCard = (props) => {
-  const { classes } = props;
+  const classes = useStyles();
   const RecipeLink = props => <Link to={props.path} {...props}>Read more</Link>;
 
   return (
@@ -65,4 +64,4 @@ RecipeCard.propTypes = {
   image: PropTypes.object,
 };
 
-export default withStyles(styles)(RecipeCard);
+export default RecipeCard;
