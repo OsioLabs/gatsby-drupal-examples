@@ -1,19 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Img from 'gatsby-image';
 import GridList from '@material-ui/core/GridList';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Typography from '@material-ui/core/Typography';
+<<<<<<< HEAD
+import { withStyles } from '@material-ui/core/styles';
 
 import RecipeList from '../RecipeList/RecipeList';
 
+const styles = theme => ({
+	// custom CSS here ...
+});
+=======
+>>>>>>> 47b3fee... Update to use @material-ui/* version ^4.
+
 const Recipe = (props) => (
   <>
-    {props.image.localFile &&
-      <Img fluid={props.image.localFile.childImageSharp.fluid} />
-    }
     <Typography variant="h2" paragraph>{props.title}</Typography>
     <GridList cols={5} cellHeight="auto">
       <ListItem>

@@ -2,11 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
+import Box from '@material-ui/core/Box';
+import Container from '@material-ui/core/Container';
 
 import Navigation from './Navigation/Navigation';
-
-import { withStyles } from '@material-ui/core/styles';
-import withRoot from '../withRoot';
 
 const styles = theme => ({
   root: {
@@ -23,7 +22,6 @@ const styles = theme => ({
 
 const Layout = (props) => {
   const {children} = props;
-  const {classes} = props;
 
   return (
     <StaticQuery
@@ -47,12 +45,12 @@ const Layout = (props) => {
           >
             <html lang="en"/>
           </Helmet>
-          <div className={classes.root}>
+          <Container maxWidth="lg">
             <Navigation siteTitle={data.site.siteMetadata.title}/>
-            <main>
+            <Box component="main">
               {children}
-            </main>
-          </div>
+            </Box>
+          </Container>
         </>
       )}
     />
@@ -63,4 +61,4 @@ Layout.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-export default withRoot(withStyles(styles)(Layout));
+export default Layout;

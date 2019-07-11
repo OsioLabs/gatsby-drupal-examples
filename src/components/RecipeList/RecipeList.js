@@ -1,11 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { StaticQuery, Link, graphql } from "gatsby"
-import { withStyles } from '@material-ui/core/styles';
-
-const styles = theme => ({
-
-});
 
 const RecipeListWrapper = () => (
   <StaticQuery
@@ -56,4 +51,4 @@ RecipeList.propTypes = {
   ).isRequired,
 };
 
-export default withStyles(styles)(RecipeListWrapper);
+export default RecipeListWrapper;
