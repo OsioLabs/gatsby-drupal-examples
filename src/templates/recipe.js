@@ -1,21 +1,21 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Helmet from 'react-helmet';
+import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
 import Layout from '../components/layout';
 import Recipe from '../components/Recipe/Recipe';
-import Paper from '@material-ui/core/Paper';
-import { withStyles } from '@material-ui/core/styles';
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
   root: {
     ...theme.mixins.gutters(),
     paddingTop: theme.spacing.unit * 2,
     paddingBottom: theme.spacing.unit * 2,
   },
-});
+}));
 
 const recipeTemplate = (props) => {
-  const { classes } = props;
+  const classes = useStyles();
   const { nodeRecipe: recipe } = props.data;
 
   return (
@@ -39,7 +39,7 @@ const recipeTemplate = (props) => {
   )
 };
 
-export default withStyles(styles)(recipeTemplate);
+export default recipeTemplate;
 
 // The $drupal_id variable here is obtained from the "context" object passed into
 // the createPage() API in gatsby-node.js.

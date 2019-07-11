@@ -5,11 +5,6 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Typography from '@material-ui/core/Typography';
-import { withStyles } from '@material-ui/core/styles';
-
-const styles = theme => ({
-	// custom CSS here ...
-});
 
 const Recipe = (props) => (
   <>
@@ -62,4 +57,4 @@ Recipe.propTypes = {
   tags: PropTypes.array,
 };
 
-export default withStyles(styles)(Recipe);
+export default Recipe;
