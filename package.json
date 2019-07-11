@@ -4,9 +4,12 @@
   "version": "1.0.0",
   "author": "Joe Shindelar <joe@osiolabs.com>",
   "dependencies": {
+    "@material-ui/core": "^4.2.0",
+    "@material-ui/styles": "^4.2.0",
     "gatsby": "^2.13.13",
     "gatsby-image": "^2.2.4",
     "gatsby-plugin-manifest": "^2.2.1",
+    "gatsby-plugin-material-ui": "^2.1.4",
     "gatsby-plugin-offline": "^2.2.1",
     "gatsby-plugin-react-helmet": "^3.1.0",
     "gatsby-plugin-sharp": "^2.2.3",

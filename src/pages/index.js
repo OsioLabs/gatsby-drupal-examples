@@ -1,23 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby'
-
-import Layout from '../components/layout'
-
-import { withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
+import Layout from '../components/layout'
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
   root: {
-    ...theme.mixins.gutters(),
-    paddingTop: theme.spacing.unit * 2,
-    paddingBottom: theme.spacing.unit * 2,
+    padding: theme.spacing(3, 2),
   },
-});
+}));
 
 const IndexPage = (props) => {
-  const {classes} = props;
+  const classes = useStyles();
 
   return (
     <Layout>
@@ -39,4 +35,4 @@ IndexPage.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(IndexPage);
+export default IndexPage;

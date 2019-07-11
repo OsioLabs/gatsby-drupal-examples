@@ -1,46 +1,47 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
-import { withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 
-const styles = {
+const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
   },
-  grow: {
+  menuButton: {
+    marginRight: theme.spacing(2),
+  },
+  title: {
     flexGrow: 1,
   },
-  menu: {
-    display: 'flex',
-  },
-  menuButton: {
-    marginRight: '20px',
-  }
-};
+}));
 
 function Navigation(props) {
-  const { classes } = props;
+  const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <AppBar position="relative" color="default">
-        <Toolbar>
-          <Typography variant="h2" className={classes.grow}>{props.siteTitle}</Typography>
-          <div className={classes.menu}>
-              <Button component={Link} to="/" className={classes.menuButton}>Home</Button>
-          </div>
-        </Toolbar>
-      </AppBar>
-    </div>
+    <AppBar position="static" className={classes.root}>
+      <Toolbar>
+        <Typography
+          variant="h6"
+          className={classes.title}
+        >
+          {props.siteTitle}
+        </Typography>
+        <div>
+            <Button
+              component={Link}
+              to="/"
+              color="inherit"
+            >
+              Home
+            </Button>
+        </div>
+      </Toolbar>
+    </AppBar>
   );
 }
 
-Navigation.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
-
-export default withStyles(styles)(Navigation);
+export default Navigation;
