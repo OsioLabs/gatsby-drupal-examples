@@ -30,8 +30,7 @@ module.exports = {
     {
       resolve: `gatsby-source-drupal`,
       options: {
-        //baseUrl: `http://dev-gatsby-drupal-demo.pantheonsite.io/`,
-        baseUrl: `http://gatsby-drupal-demo.ddev.site/`,
+        baseUrl: `http://dev-gatsby-drupal-demo.pantheonsite.io/`,
         apiBase: `jsonapi`, // optional, defaults to `jsonapi`
       },
     },
