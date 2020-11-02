@@ -7,19 +7,6 @@ import Container from '@material-ui/core/Container';
 
 import Navigation from './Navigation/Navigation';
 
-const styles = theme => ({
-  root: {
-    width: 'auto',
-    marginLeft: theme.spacing.unit * 3,
-    marginRight: theme.spacing.unit * 3,
-    [theme.breakpoints.up(1100 + theme.spacing.unit * 3 * 2)]: {
-      width: 1100,
-      marginLeft: 'auto',
-      marginRight: 'auto',
-    },
-  },
-});
-
 const Layout = (props) => {
   const {children} = props;
 
